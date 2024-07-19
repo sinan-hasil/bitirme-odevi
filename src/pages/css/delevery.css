@@ -1,0 +1,16 @@
+.delevery {
+  font-size: 13px;
+  display: flex;
+  justify-content: space-between;
+}
+.delevery .package {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+@media screen and (max-width: 576px) {
+  .delevery {
+    display: none;
+  }
+}/*# sourceMappingURL=delevery.css.map */

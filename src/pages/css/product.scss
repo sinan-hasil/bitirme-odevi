@@ -1,0 +1,14 @@
+.product{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .prod-name{
+        text-align: center;
+    }
+    
+    .prod-explanation{
+        color: #888888;
+        text-align: center;
+    }
+}

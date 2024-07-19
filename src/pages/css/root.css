@@ -1,0 +1,83 @@
+.navbar .input .form-control {
+  max-width: 300px;
+}
+.navbar .input .form-control::-moz-placeholder {
+  font-size: 14px;
+  color: #6c757d;
+}
+.navbar .input .form-control::placeholder {
+  font-size: 14px;
+  color: #6c757d;
+}
+.navbar .input .dropdown {
+  border: 2px solid #6c757d !important;
+  border-radius: 5px;
+}
+.navbar .input .dropdown .dropdown-toggle {
+  border-radius: 5px;
+}
+.navbar .input .span {
+  font-size: 11px;
+  line-height: 27px;
+}
+.navbar .input .basket-btn {
+  padding: 5px 0;
+  position: relative;
+}
+.navbar .input .basket-btn .basket-number {
+  position: absolute;
+  top: 0;
+  left: 25px;
+  background-color: red;
+  padding: 0 5px;
+  border-radius: 10px;
+  font-size: 12px;
+}
+.navbar .input .basket-btn .basket-icon {
+  font-size: 23px;
+}
+.navbar .input .basket-btn .basket {
+  font-size: 11px;
+  line-height: 32px;
+}
+
+.responsive-navbar {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .navbar {
+    display: none !important;
+  }
+  .responsive-navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 22px;
+  }
+}
+.none-input {
+  display: none;
+}
+
+@media screen and (max-width: 576px) {
+  .none-input {
+    display: block;
+    position: relative;
+  }
+  .none-input .icon {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 20px;
+  }
+  .none-input .text-input {
+    padding-left: 35px;
+  }
+  .none-input .text-input::-moz-placeholder {
+    font-size: 12px;
+  }
+  .none-input .text-input::placeholder {
+    font-size: 12px;
+  }
+}/*# sourceMappingURL=root.css.map */

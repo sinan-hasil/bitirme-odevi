@@ -1,0 +1,93 @@
+.navbar {
+    .input {
+      .form-control {
+        max-width: 300px;
+  
+        &::placeholder {
+          font-size: 14px;
+          color: #6c757d;
+        }
+      }
+  
+      .dropdown {
+        border: 2px solid #6c757d !important;
+        border-radius: 5px;
+  
+        .dropdown-toggle {
+          border-radius: 5px;
+        }
+      }
+  
+      .span {
+        font-size: 11px;
+        line-height: 27px;
+      }
+  
+      .basket-btn {
+        padding: 5px 0;
+        position: relative;
+  
+        .basket-number {
+          position: absolute;
+          top: 0;
+          left: 25px;
+          background-color: red;
+          padding: 0 5px;
+          border-radius: 10px;
+          font-size: 12px;
+        }
+  
+        .basket-icon {
+          font-size: 23px;
+        }
+  
+        .basket {
+          font-size: 11px;
+          line-height: 32px;
+        }
+      }
+    }
+  }
+  
+  .responsive-navbar {
+    display: none;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .navbar {
+      display: none !important;
+    }
+  
+    .responsive-navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 22px;
+    }
+  }
+
+  .none-input{
+    display: none;
+  }
+  
+  @media screen and (max-width: 576px) {
+    .none-input{
+      display: block;
+      position: relative;
+
+    .icon{
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      font-size: 20px;
+    }
+
+    .text-input{
+      padding-left: 35px;
+
+      &::placeholder{
+        font-size: 12px;        
+      }
+    }
+    }
+  }
