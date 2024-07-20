@@ -1,4 +1,6 @@
 import { Col, Container, Row } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import { nanoid } from "nanoid";
 import prod1 from "../images/prod1.png";
 import prod2 from "../images/prod2.png";
 import prod3 from "../images/prod3.png";
@@ -8,6 +10,7 @@ import prod6 from "../images/prod6.png";
 import "../css/product.css";
 
 interface Products {
+  id: string;
   src: string;
   name: string;
   explanation: string;
@@ -16,26 +19,10 @@ interface Products {
   price: string;
 }
 
-const Product = ({ product }: { product: Products }) => {
-  return (
-    <>
-    
-      <div className="product">
-        
-        <img src={product.src} alt={product.name} className="prod-img" />
-        <h5 className="prod-name">{product.name}</h5>
-        <small className="prod-explanation">{product.explanation}</small>
-        <p>Score: {product.score}</p>
-        <small>{product.comments}</small>
-        <h6>{product.price}</h6>
-      </div>
-    </>
-  );
-};
-
 const ExportProduct = () => {
   const prodArr: Products[] = [
     {
+      id: nanoid(10).slice(0, 3),
       src: prod1,
       name: "WHEY PROTEIN",
       explanation: "EN ÇOK TERCİH EDİLEN PROTEİN TAKVİYESİ",
@@ -44,6 +31,7 @@ const ExportProduct = () => {
       price: "549 TL",
     },
     {
+      id: nanoid(10).slice(0, 3),
       src: prod2,
       name: "FITNESS PAKETİ",
       explanation: "EN POPÜLER ÜRÜNLER BİR ARADA",
@@ -52,6 +40,7 @@ const ExportProduct = () => {
       price: "549 TL",
     },
     {
+      id: nanoid(10).slice(0, 3),
       src: prod3,
       name: "GÜNLÜK VİTAMİN PAKETİ",
       explanation: "EN SIK TÜKETİLEN TAKVİYELER",
@@ -60,6 +49,7 @@ const ExportProduct = () => {
       price: "549 TL",
     },
     {
+      id: nanoid(10).slice(0, 3),
       src: prod4,
       name: "PRE-WORKOUT SUPREME",
       explanation: "ANTRENMAN ÖNCESİ TAKVİYESİ",
@@ -68,6 +58,7 @@ const ExportProduct = () => {
       price: "549 TL",
     },
     {
+      id: nanoid(10).slice(0, 3),
       src: prod5,
       name: "CREAM OF RICE",
       explanation: "EN LEZZETLİ PİRİNÇ KREMASI",
@@ -76,6 +67,7 @@ const ExportProduct = () => {
       price: "549 TL",
     },
     {
+      id: nanoid(10).slice(0, 3),
       src: prod6,
       name: "CREATINE",
       explanation: "EN POPÜLER SPORCU TAKVİYESİ",
@@ -86,19 +78,25 @@ const ExportProduct = () => {
   ];
 
   return (
-    <>
-      <Container className="mt-5">
-        <Row>
-        <h2 className="text-center">ÇOK SATANLAR</h2>
-          {prodArr.map((payload, index) => (
-            
-            <Col sm={6} md={4} xl={2} key={index}>
-              <Product product={payload} />
-            </Col>
-          ))}
-        </Row>
-      </Container>
-    </>
+    <Container className="mt-5">
+      <h2 className="text-center">ÇOK SATANLAR</h2>
+      <Row>
+        {prodArr.map((product, index) => (
+          <Col sm={6} md={4} xl={2} key={index}>
+            <Link to={`/products/${product.id}`}>
+              <div className="product">
+                <img src={product.src} alt={product.name} className="prod-img" />
+                <h5 className="prod-name">{product.name}</h5>
+                <small className="prod-explanation">{product.explanation}</small>
+                <p>Score: {product.score}</p>
+                <small>{product.comments}</small>
+                <h6>{product.price}</h6>
+              </div>
+            </Link>
+          </Col>
+        ))}
+      </Row>
+    </Container>
   );
 };
 

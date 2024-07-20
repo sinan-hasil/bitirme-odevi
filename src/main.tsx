@@ -4,9 +4,8 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-import Root from './pages/Root';
 import "bootstrap/dist/css/bootstrap.min.css"
-import Mainpage from './pages/Mainpage';
+import {Mainpage, ProductDetail, Root} from './pages';
 
 const router = createBrowserRouter([
   {
@@ -16,6 +15,10 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <Mainpage />
+      },
+      {
+        path: "products",
+        element: <ProductDetail />
       }
     ]
   },
