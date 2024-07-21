@@ -1,4 +1,4 @@
-import { Col, Container, Row } from "react-bootstrap";
+import { Col, Container, Nav, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { nanoid } from "nanoid";
 import prod1 from "../images/prod1.png";
@@ -83,7 +83,7 @@ const ExportProduct = () => {
       <Row>
         {prodArr.map((product, index) => (
           <Col sm={6} md={4} xl={2} key={index}>
-            <Link to={`/products/${product.id}`}>
+            <Nav.Link as={Link} to={`products/${product.id}`}>
               <div className="product">
                 <img src={product.src} alt={product.name} className="prod-img" />
                 <h5 className="prod-name">{product.name}</h5>
@@ -92,7 +92,7 @@ const ExportProduct = () => {
                 <small>{product.comments}</small>
                 <h6>{product.price}</h6>
               </div>
-            </Link>
+            </Nav.Link>
           </Col>
         ))}
       </Row>
