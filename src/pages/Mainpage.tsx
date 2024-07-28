@@ -7,7 +7,7 @@ import ExportProduct from "./components/Product";
 import bigImg from "./images/OJS nutrition slider banner 2.png";
 import sport from "./images/sport.png";
 import { Col, Container, Row } from "react-bootstrap";
-import "./css/footer.css"
+import "./css/mainpage.css"
 
 const Mainpage = () => {
   return (
@@ -16,7 +16,7 @@ const Mainpage = () => {
       <Delevery />
 
       <div>
-        <img src={bigImg} className="img-fluid w-100" />
+        <img src={bigImg} className="img-fluid w-100 top-img" />
       </div>
 
       <BigCard />

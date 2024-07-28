@@ -69,39 +69,42 @@ const Footer = () => {
         <div className="akordion">
       <Accordion>
         <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
+          expandIcon={<ExpandMoreIcon className="text-white" />}
           aria-controls="panel1-content"
           id="panel1-header"
+          className="bg-dark text-white"
         >
           Accordion 1
         </AccordionSummary>
-        <AccordionDetails>
+        <AccordionDetails className="bg-dark text-white">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
           malesuada lacus ex, sit amet blandit leo lobortis eget.
         </AccordionDetails>
       </Accordion>
       <Accordion>
         <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
+          expandIcon={<ExpandMoreIcon className="text-white" />}
           aria-controls="panel2-content"
           id="panel2-header"
+          className="bg-dark text-white"
         >
           Accordion 2
         </AccordionSummary>
-        <AccordionDetails>
+        <AccordionDetails className="bg-dark text-white">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
           malesuada lacus ex, sit amet blandit leo lobortis eget.
         </AccordionDetails>
       </Accordion>
       <Accordion defaultExpanded>
         <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
+          expandIcon={<ExpandMoreIcon className="text-white" />}
           aria-controls="panel3-content"
           id="panel3-header"
+          className="bg-dark text-white"
         >
           Accordion Actions
         </AccordionSummary>
-        <AccordionDetails>
+        <AccordionDetails className="bg-dark">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
           malesuada lacus ex, sit amet blandit leo lobortis eget.
         </AccordionDetails>

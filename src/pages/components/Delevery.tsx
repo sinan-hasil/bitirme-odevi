@@ -7,7 +7,7 @@ import { AiOutlineSafety } from "react-icons/ai";
 const Delevery = () => {
   return (
     <>
-        <Container className="py-2 delevery">
+        <Container className="pb-2 delevery">
             <div className="package">
             <LuPackageOpen />
             <b>AYNI GÜN KARGO</b>

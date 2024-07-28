@@ -9,4 +9,10 @@
 .product .prod-explanation {
   color: #888888;
   text-align: center;
+}
+
+@media screen and (max-width: 576px) {
+  .row {
+    display: block !important;
+  }
 }/*# sourceMappingURL=product.css.map */

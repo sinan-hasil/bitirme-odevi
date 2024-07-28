@@ -12,26 +12,28 @@ const BigCard = () => {
         <Container className="mt-5">
             <Row className="d-flex">
                 <Col sm={12} md={4} lg={4} className="mt-3 d-flex justify-content-center">
-                    <img src={card1} />
+                    <img src={card1} className="img-fluid" />
                 </Col>
                 <Col sm={12} md={4} lg={4} className="mt-3 d-flex justify-content-center">
-                    <img src={card2} />
+                    <img src={card2} className="img-fluid" />
                 </Col>
                 <Col sm={12} md={4} lg={4} className="mt-3 d-flex justify-content-center">
-                    <img src={card3} />
+                    <img src={card3} className="img-fluid" />
+                </Col>
+
+                <Col sm={12} md={4} lg={4} className="mt-3 d-flex justify-content-center">
+                    <img src={card4} className="img-fluid" />
+                </Col>
+                <Col sm={12} md={4} lg={4} className="mt-3 d-flex justify-content-center">
+                    <img src={card5} className="img-fluid" />
+                </Col>
+                <Col sm={12} md={4} lg={4} className="mt-3 d-flex justify-content-center">
+                    <img src={card6} className="img-fluid" />
                 </Col>
             </Row>
 
             <Row className="mt-3">
-                <Col sm={12} md={4} lg={4} className="mt-3 d-flex justify-content-center">
-                    <img src={card4} />
-                </Col>
-                <Col sm={12} md={4} lg={4} className="mt-3 d-flex justify-content-center">
-                    <img src={card5} />
-                </Col>
-                <Col sm={12} md={4} lg={4} className="mt-3 d-flex justify-content-center">
-                    <img src={card6} />
-                </Col>
+                
             </Row>
         </Container>
     </>

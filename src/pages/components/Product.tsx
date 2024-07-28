@@ -82,7 +82,7 @@ const ExportProduct = () => {
       <h2 className="text-center">ÇOK SATANLAR</h2>
       <Row>
         {prodArr.map((product, index) => (
-          <Col sm={6} md={4} xl={2} key={index}>
+          <Col sm={6} md={4} lg={2} key={index} className="d-flex- justfy-content-center">
             <Nav.Link as={Link} to={`products/${product.id}`}>
               <div className="product">
                 <img src={product.src} alt={product.name} className="prod-img" />
