@@ -2,7 +2,6 @@ import BigCard from "./components/BigCard";
 import Delevery from "./components/Delevery";
 import Footer from "./components/Footer";
 import MainpageComments from "./components/MainpageComments";
-import Menu from "./components/Menu";
 import ExportProduct from "./components/Product";
 import bigImg from "./images/OJS nutrition slider banner 2.png";
 import sport from "./images/sport.png";
@@ -12,7 +11,7 @@ import "./css/mainpage.css"
 const Mainpage = () => {
   return (
     <>
-      <Menu />
+
       <Delevery />
 
       <div>

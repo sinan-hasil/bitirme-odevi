@@ -3,6 +3,11 @@
     flex-direction: column;
     align-items: center;
 
+    .img-fluid{
+        width: 177px !important;
+        height: 177px !important;
+    }
+
     .prod-name{
         text-align: center;
     }

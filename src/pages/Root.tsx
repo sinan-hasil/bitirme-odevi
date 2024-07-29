@@ -2,10 +2,12 @@ import { Button, Container, Dropdown, Form, InputGroup } from "react-bootstrap";
 import logo from "./images/LOGO_Siyah.png";
 import { IoPersonOutline } from "react-icons/io5";
 import { MdOutlineShoppingCart } from "react-icons/md";
-import { Outlet } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import "./css/root.css";
 import { CiSearch } from "react-icons/ci";
 import HamburgerNav from "./components/HamburgerNav"
+import Footer from "./components/Footer";
+import Menu from "./components/Menu";
 
 const Root = () => {
   return (
@@ -13,7 +15,9 @@ const Root = () => {
       <Container fluid className="navbar">
         <Container className="d-flex align-items-center justify-content-between py-2">
           <div>
+            <Link to={"/"}>
             <img src={logo} className="w-100" />
+            </Link>
           </div>
 
           <div className="input d-flex align-items-center position-relative gap-md-3 gap-lg-5">
@@ -52,13 +56,14 @@ const Root = () => {
                 <span className="basket-number">0</span>
                 <MdOutlineShoppingCart className="basket-icon mt-1" />
                 <span className="basket">SEPET</span>
+                
               </div>
             </Button>
           </div>
         </Container>
       </Container>
 
-      <div></div>
+      
 
       <div>
         <Container className="responsive-navbar">
@@ -83,7 +88,10 @@ const Root = () => {
           placeholder="ARADIĞINIZ ÜRÜNÜ YAZINIZ."
         />
       </div>
+      <Menu />
       <Outlet />
+
+      <Footer />
     </>
   );
 };

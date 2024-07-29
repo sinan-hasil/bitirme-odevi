@@ -20,6 +20,10 @@
   font-size: 11px;
   line-height: 27px;
 }
+.navbar .input .link {
+  color: white;
+  text-decoration: none;
+}
 .navbar .input .basket-btn {
   padding: 5px 0;
   position: relative;
