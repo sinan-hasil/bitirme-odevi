@@ -52,12 +52,13 @@ const Root = () => {
             </Dropdown>
 
             <Button variant="secondary d-flex align-items-center px-3 basket-btn">
-              <div className="d-flex gap-3 align-tems-center">
+              <HamburgerNav direciton="right" size={500} />
+              {/* <div className="d-flex gap-3 align-tems-center">
                 <span className="basket-number">0</span>
                 <MdOutlineShoppingCart className="basket-icon mt-1" />
-                <span className="basket">SEPET</span>
-                
+                <span className="basket">SEPET</span>                
               </div>
+              </HamburgerNav> */}
             </Button>
           </div>
         </Container>
@@ -68,7 +69,7 @@ const Root = () => {
       <div>
         <Container className="responsive-navbar">
           <div>
-            <HamburgerNav />
+            <HamburgerNav direciton={"left"} size={240} />
           </div>
 
           <div>
