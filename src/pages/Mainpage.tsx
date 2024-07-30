@@ -1,6 +1,5 @@
 import BigCard from "./components/BigCard";
 import Delevery from "./components/Delevery";
-import Footer from "./components/Footer";
 import MainpageComments from "./components/MainpageComments";
 import ExportProduct from "./components/Product";
 import bigImg from "./images/OJS nutrition slider banner 2.png";
@@ -54,7 +53,6 @@ const Mainpage = () => {
         </Container>
       </div>
 
-      <Footer />
     </>
   );
 };

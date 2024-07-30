@@ -1,23 +1,24 @@
-import { useState } from 'react'
-import Drawer from 'react-modern-drawer'
-import 'react-modern-drawer/dist/index.css'
+import { useState } from 'react';
+import Drawer from 'react-modern-drawer';
+import 'react-modern-drawer/dist/index.css';
 import { RxHamburgerMenu } from "react-icons/rx";
 import { IoIosArrowForward } from "react-icons/io";
-import "../css/hamburger.css"
+import "../css/hamburger.css";
 
-const App = () => {
-    const [isOpen, setIsOpen] = useState(false)
+
+const HamburgerNav = () => {
+    const [isOpen, setIsOpen] = useState(false);
     const toggleDrawer = () => {
-        setIsOpen((prevState) => !prevState)
-    }
+        setIsOpen(prevState => !prevState);
+    };
 
     return (
         <>
-            <button onClick={toggleDrawer}><RxHamburgerMenu className='icon' /></button>
+            <button onClick={toggleDrawer}><RxHamburgerMenu className='icon' /></button> 
             <Drawer
                 open={isOpen}
                 onClose={toggleDrawer}
-                direction='left'
+                direction="left"
                 className='bla bla bla'
             >
                 <ul>
@@ -38,7 +39,7 @@ const App = () => {
                 </div>
             </Drawer>
         </>
-    )
-}
+    );
+};
 
-export default App
+export default HamburgerNav;
