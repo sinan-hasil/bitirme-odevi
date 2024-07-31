@@ -6,6 +6,11 @@ import { IoIosArrowForward } from "react-icons/io";
 import "../css/hamburger.css";
 import { MdOutlineShoppingCart } from "react-icons/md";
 import prod1 from "../images/prod1.png";
+import "../css/sepet.css"
+import { LuTrash } from "react-icons/lu";
+import { FiPlus } from "react-icons/fi";
+
+
 
 const App = ({ direciton, size }: { direciton: "left" | "right", size: number | string }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -66,24 +71,30 @@ const App = ({ direciton, size }: { direciton: "left" | "right", size: number | 
             </div>
           </>
         ) : direciton === "right" ? (
-          <div className="text-dark">
-              <h5 className="mt-4 mb-5">SEPETİM</h5>
-            <div className="main">
+          <>
+            <h5 className="text-dark">SEPETİM</h5>
+          <div className="main">            
 
-              <div className="left">
-                
-                <img src={prod1} />
-                <div className="d-flex flex-column gap-5">
-                <h6>COLLAGEN</h6>
-                <div>
-                <div>Ahududu</div>
-                <div>250 gram</div>
-                </div>
-                </div>
+            <div className="sepet-left">
+              <img src={prod1} />
+              
+              <div>
+              <h6>COLLAGEN</h6>
+                <p>Ahududu</p>
+                <p>250g</p>
               </div>
             </div>
 
+            <div className="sepet-right">
+              <b>499 TL</b>
+              <div className="sepet-card mt-4">
+              <LuTrash />
+              <span>1</span>
+              <FiPlus />
+              </div>
+            </div>
           </div>
+          </>
         ) : (
           <></>
         )}

@@ -1,0 +1,36 @@
+.main {
+  color: black;
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+  padding: 5px 20px;
+  border-bottom: 1px solid #ddd;
+}
+.main .sepet-left {
+  display: flex;
+  gap: 10px;
+  width: auto;
+}
+.main .sepet-left img {
+  width: 103px;
+  height: 103px;
+}
+.main .sepet-left div {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+.main .sepet-left div p {
+  padding: 0;
+  margin: 0;
+  color: #888888;
+}
+.main .sepet-right {
+  width: 120px;
+}
+.main .sepet-right .sepet-card {
+  width: 90px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}/*# sourceMappingURL=sepet.css.map */

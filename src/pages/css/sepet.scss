@@ -1,0 +1,42 @@
+.main {
+  color: black;
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+  padding: 5px 20px;
+  border-bottom: 1px solid #ddd;
+
+  .sepet-left {
+    display: flex;
+    gap: 10px;
+    width: auto;
+
+    img {
+      width: 103px;
+      height: 103px;
+    }
+
+    div {
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+
+      p {
+        padding: 0;
+        margin: 0;
+        color: #888888;
+      }
+    }
+  }
+
+  .sepet-right {
+    width: 120px;
+
+    .sepet-card {
+      width: 90px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+}
