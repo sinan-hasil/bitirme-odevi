@@ -1,7 +1,6 @@
 import { Button, Container, Dropdown, Form, InputGroup } from "react-bootstrap";
 import logo from "./images/LOGO_Siyah.png";
 import { IoPersonOutline } from "react-icons/io5";
-import { MdOutlineShoppingCart } from "react-icons/md";
 import { Link, Outlet } from "react-router-dom";
 import "./css/root.css";
 import { CiSearch } from "react-icons/ci";
@@ -77,7 +76,7 @@ const Root = () => {
           </div>
 
           <div>
-            <MdOutlineShoppingCart />
+            <HamburgerNav direciton="right" size={240} />
           </div>
         </Container>
       </div>

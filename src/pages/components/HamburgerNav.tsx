@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Drawer from "react-modern-drawer";
 import "react-modern-drawer/dist/index.css";
 import { RxHamburgerMenu } from "react-icons/rx";
@@ -12,11 +12,25 @@ import { FiPlus } from "react-icons/fi";
 
 
 
+
 const App = ({ direciton, size }: { direciton: "left" | "right", size: number | string }) => {
+  
   const [isOpen, setIsOpen] = useState(false);
   const toggleDrawer = () => {
     setIsOpen((prevState) => !prevState);
   };
+
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 576);
+
+  useEffect(() => {
+    
+    const ekranBoyut = () => {
+      setIsMobile(window.innerWidth < 576);
+    };
+
+    window.addEventListener('resize', ekranBoyut);
+    return () => window.removeEventListener('resize', ekranBoyut);
+  }, []);
 
   return (
     <>
@@ -25,14 +39,16 @@ const App = ({ direciton, size }: { direciton: "left" | "right", size: number | 
           <RxHamburgerMenu className="icon" />
         </button>
       ) : direciton === "right" ? (
-        <div onClick={toggleDrawer} className="d-flex gap-3 align-tems-center">
-          <span className="basket-number">0</span>
-          <MdOutlineShoppingCart className="basket-icon mt-1" />
-          <span className="basket">SEPET</span>
-        </div>
-      ) : (
-        <></>
-      )}
+        isMobile ? (
+          <MdOutlineShoppingCart />
+        ) : (
+          <div onClick={toggleDrawer} className="d-flex gap-3 align-items-center">
+            <span className="basket-number">0</span>
+            <MdOutlineShoppingCart className="basket-icon mt-1" />
+            <span className="basket">SEPET</span>
+          </div>
+        )
+      ) : null}
 
       <Drawer
         open={isOpen}
@@ -71,7 +87,34 @@ const App = ({ direciton, size }: { direciton: "left" | "right", size: number | 
             </div>
           </>
         ) : direciton === "right" ? (
+          
           <>
+          {isMobile ? (
+            <>
+              <h5 className="text-dark">SEPETİM</h5>
+          <div className="main">            
+
+            <div className="sepet-left">
+              <img src={prod1} />
+              
+              <div>
+              <h6>COLLAGEN</h6>
+                <p>Ahududu</p>
+                <p>250g</p>
+              </div>
+            </div>
+
+            <div className="sepet-right">
+              <b>499 TL</b>
+              <div className="sepet-card mt-4">
+              <LuTrash />
+              <span>1</span>
+              <FiPlus />
+              </div>
+            </div>
+          </div>
+            </>
+          ) : null}
             <h5 className="text-dark">SEPETİM</h5>
           <div className="main">            
 
@@ -95,9 +138,7 @@ const App = ({ direciton, size }: { direciton: "left" | "right", size: number | 
             </div>
           </div>
           </>
-        ) : (
-          <></>
-        )}
+        ) : null }
       </Drawer>
     </>
   );
