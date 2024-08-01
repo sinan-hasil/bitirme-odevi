@@ -19,7 +19,7 @@ const Footer = () => {
               </div>
               <div><Nav.Link as={Link} to={"/contact"}>İletişim</Nav.Link></div>
               <div>Hakkımızda</div>
-              <div>Sıkça Sorulan Sorular</div>
+              <div><Nav.Link as={Link} to={"/faq"}>Sıkça Sorulan Sorular</Nav.Link></div>
               <div>KVKK</div>
               <div>Çalışma İlkelerimiz</div>
               <div>Satış Sözleşmesi</div>

@@ -1,0 +1,12 @@
+.container input::-moz-placeholder {
+  color: #888888;
+}
+.container input::placeholder {
+  color: #888888;
+}
+.container textarea::-moz-placeholder {
+  color: #888888;
+}
+.container textarea::placeholder {
+  color: #888888;
+}/*# sourceMappingURL=contact.css.map */
