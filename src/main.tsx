@@ -5,7 +5,7 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css"
-import {AllProducts, Contact, Mainpage, Root, SSS} from './pages';
+import {AllProducts, Contact, Login, Mainpage, Root, SSS} from './pages';
 
 const router = createBrowserRouter([
   {
@@ -27,7 +27,11 @@ const router = createBrowserRouter([
       {
         path: "/faq",
         element: <SSS />
-      },      
+      }, 
+      {
+        path: "/login",
+        element: <Login />
+      }     
     ]
   },
 ]);
