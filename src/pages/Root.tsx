@@ -1,4 +1,4 @@
-import { Button, Container, Dropdown, Form, InputGroup } from "react-bootstrap";
+import { Button, Container, Dropdown, Form, InputGroup, Nav } from "react-bootstrap";
 import logo from "./images/LOGO_Siyah.png";
 import { IoPersonOutline } from "react-icons/io5";
 import { Link, Outlet } from "react-router-dom";
@@ -44,9 +44,7 @@ const Root = () => {
               </Dropdown.Toggle>
 
               <Dropdown.Menu>
-                <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-                <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-                <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+                <Dropdown.Item href="#/action-1"><Nav.Link as={Link} to={"/login"}>Giriş Yap</Nav.Link></Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>
 
