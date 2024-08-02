@@ -77,7 +77,7 @@ const Footer = () => {
           </AccordionSummary>
           <AccordionDetails className="bg-dark text-white">
             <div className="first-list">
-              <div>İletişim</div>
+              <div><Nav.Link as={Link} to={"/contact"}>İletişim</Nav.Link></div>
               <div>Hakkımızda</div>
               <div>Sıkça Sorulan Sorular</div>
               <div>KVKK</div>

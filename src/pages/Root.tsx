@@ -70,7 +70,9 @@ const Root = () => {
           </div>
 
           <div>
+            <Link to={"/"}>
             <img src={logo} />
+            </Link>
           </div>
 
           <div>

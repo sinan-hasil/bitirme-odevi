@@ -9,6 +9,8 @@ import prod1 from "../images/prod1.png";
 import "../css/sepet.css"
 import { LuTrash } from "react-icons/lu";
 import { FiPlus } from "react-icons/fi";
+import { Nav } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 
 
@@ -61,7 +63,7 @@ const App = ({ direciton, size }: { direciton: "left" | "right", size: number | 
           <>
             <ul>
               <li>
-                PROTEİN <IoIosArrowForward />
+                <Nav.Link as={Link} to={"/allProducts"} className="w-100 d-flex justify-content-between align-items-center">PROTEİN <IoIosArrowForward /></Nav.Link>
               </li>
               <li>
                 SPOR GIDALARI <IoIosArrowForward />
@@ -80,7 +82,7 @@ const App = ({ direciton, size }: { direciton: "left" | "right", size: number | 
 
             <div className="auth">
               <ul>
-                <li>HESABIM</li>
+                <li><Nav.Link as={Link} to={"/login"}>HESABIM</Nav.Link></li>
                 <li>MÜŞTERİ YORUMLARI</li>
                 <li>İLETİŞİM</li>
               </ul>
