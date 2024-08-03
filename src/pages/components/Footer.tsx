@@ -34,7 +34,7 @@ const Footer = () => {
               <div>
                 <h5>Kategoriler</h5>
               </div>
-              <div>Protein</div>
+              <div><Nav.Link as={Link} to={"/allProducts"}>Protein</Nav.Link></div>
               <div>Spor Gıdaları</div>
               <div>Sağlık</div>
               <div>Gıda</div>

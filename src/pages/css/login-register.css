@@ -1,0 +1,43 @@
+.login {
+  display: flex;
+  justify-content: center;
+}
+.login .main {
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.login .main .button-div {
+  display: flex;
+  border-bottom: 1px solid #888888;
+  border-radius: 9px;
+}
+.login .main .button-div button {
+  width: 150px;
+}
+.login .main .input-div .login-content {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.login .main .input-div .login-content .login-input {
+  width: 280px;
+}
+.login .main .input-div .login-content a {
+  color: black;
+}
+.login .main .input-div .login-content .button {
+  width: 150px;
+}
+.login .main .input-div .register-content {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.login .main .input-div .register-content .register-row-input {
+  width: 150px;
+}
+.login .main .input-div .register-content a {
+  text-decoration: none;
+}/*# sourceMappingURL=login-register.css.map */
