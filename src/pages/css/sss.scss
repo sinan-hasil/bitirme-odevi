@@ -1,0 +1,26 @@
+.accordion-body{
+    background-color: #ddd;
+
+    .accordion{
+        border: none;
+    }
+}
+
+.contact-form{
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    input{
+        background-color: #f7f7f7;
+
+        &::placeholder{
+            font-size: 12px;
+        }
+    }
+
+    textarea{
+        @extend input;
+    }
+}

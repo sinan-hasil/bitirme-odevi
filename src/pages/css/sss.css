@@ -1,0 +1,22 @@
+.accordion-body {
+  background-color: #ddd;
+}
+.accordion-body .accordion {
+  border: none;
+}
+
+.contact-form {
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.contact-form input, .contact-form textarea {
+  background-color: #f7f7f7;
+}
+.contact-form input::-moz-placeholder, .contact-form textarea::-moz-placeholder {
+  font-size: 12px;
+}
+.contact-form input::placeholder, .contact-form textarea::placeholder {
+  font-size: 12px;
+}/*# sourceMappingURL=sss.css.map */

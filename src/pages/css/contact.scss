@@ -1,4 +1,8 @@
-.container{
+.contact-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
     input::placeholder{
         color: #888888;
     }

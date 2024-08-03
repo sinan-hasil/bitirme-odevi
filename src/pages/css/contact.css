@@ -1,12 +1,17 @@
-.container input::-moz-placeholder {
+.contact-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.contact-container input::-moz-placeholder {
   color: #888888;
 }
-.container input::placeholder {
+.contact-container input::placeholder {
   color: #888888;
 }
-.container textarea::-moz-placeholder {
+.contact-container textarea::-moz-placeholder {
   color: #888888;
 }
-.container textarea::placeholder {
+.contact-container textarea::placeholder {
   color: #888888;
 }/*# sourceMappingURL=contact.css.map */

@@ -3,18 +3,18 @@ import "./css/contact.css"
 
 const Contact = () => {
   return (
-    <Container className="mt-5 mb-5">
+    <Container className="mt-5 mb-5 contact-container">
       <h1 className="text-center fw-bold">Bize Ulaşın</h1>
       <p className="mt-5">
         Bize aşağıdaki iletişim numarasından ulaşabilirsiniz.
       </p>
 
       <Row className="mb-3">
-        <Col sm={12}>
+        <Col sm={12} md={6} lg={6}>
           <Form.Control type="text" placeholder="isim" />
         </Col>
 
-        <Col sm={12}>
+        <Col sm={12} md={6} lg={6}>
           <Form.Control type="text" placeholder="soyad" />
         </Col>
       </Row>
