@@ -1,101 +1,60 @@
+/* eslint-disable react-refresh/only-export-components */
 import { Col, Container, Nav, Row } from "react-bootstrap";
-import { Link } from "react-router-dom";
-import { nanoid } from "nanoid";
-import prod1 from "../images/prod1.png";
-import prod2 from "../images/prod2.png";
-import prod3 from "../images/prod3.png";
-import prod4 from "../images/prod4.png";
-import prod5 from "../images/prod5.png";
-import prod6 from "../images/prod6.png";
+import { Link, useLoaderData } from "react-router-dom";
 import "../css/product.css";
+import { nanoid } from "nanoid";
 
-interface Products {
+interface ProductType{
   id: string;
-  src: string;
   name: string;
-  explanation: string;
-  score: number;
-  comments: string;
-  price: string;
+  short_explanation: string;
+  price_info: {
+    profit: boolean;
+    total_price: number;
+    discounted_price: boolean;
+    price_per_servings: number;
+    discount_percentage: boolean;
+  };
+  photo_src: string;
+  comment_count: number;
+  average_star: number; 
+}
+
+const BASE_URL = "https://fe1111.projects.academy.onlyjs.com/api/v1";
+
+export const fetchbestSellers = async() => {
+  const response = await fetch(`${BASE_URL}/products/best-sellers`);
+  const bestSellersData = await response.json();
+  return bestSellersData.data;
 }
 
 const ExportProduct = () => {
-  const prodArr: Products[] = [
-    {
-      id: nanoid(10).slice(0, 3),
-      src: prod1,
-      name: "WHEY PROTEIN",
-      explanation: "EN ÇOK TERCİH EDİLEN PROTEİN TAKVİYESİ",
-      score: 5,
-      comments: "10869 Yorum",
-      price: "549 TL",
-    },
-    {
-      id: nanoid(10).slice(0, 3),
-      src: prod2,
-      name: "FITNESS PAKETİ",
-      explanation: "EN POPÜLER ÜRÜNLER BİR ARADA",
-      score: 5,
-      comments: "10869 Yorum",
-      price: "549 TL",
-    },
-    {
-      id: nanoid(10).slice(0, 3),
-      src: prod3,
-      name: "GÜNLÜK VİTAMİN PAKETİ",
-      explanation: "EN SIK TÜKETİLEN TAKVİYELER",
-      score: 5,
-      comments: "10869 Yorum",
-      price: "549 TL",
-    },
-    {
-      id: nanoid(10).slice(0, 3),
-      src: prod4,
-      name: "PRE-WORKOUT SUPREME",
-      explanation: "ANTRENMAN ÖNCESİ TAKVİYESİ",
-      score: 5,
-      comments: "10869 Yorum",
-      price: "549 TL",
-    },
-    {
-      id: nanoid(10).slice(0, 3),
-      src: prod5,
-      name: "CREAM OF RICE",
-      explanation: "EN LEZZETLİ PİRİNÇ KREMASI",
-      score: 5,
-      comments: "10869 Yorum",
-      price: "549 TL",
-    },
-    {
-      id: nanoid(10).slice(0, 3),
-      src: prod6,
-      name: "CREATINE",
-      explanation: "EN POPÜLER SPORCU TAKVİYESİ",
-      score: 5,
-      comments: "10869 Yorum",
-      price: "549 TL",
-    },
-  ];
+  const bestSellersData = useLoaderData() as ProductType[];
+  const bestSellersMap = bestSellersData.map((item) =>({...item, id: nanoid().slice(0, 3)}));
 
   return (
     <Container className="mt-5">
       <h2 className="text-center">ÇOK SATANLAR</h2>
       <Row>
-        {prodArr.map((product, index) => (
-          <Col sm={6} md={4} lg={2} key={index} className="d-flex- justfy-content-center">
-            <Nav.Link as={Link} to={`products/${product.id}`}>
+        {bestSellersMap.map((item) => (
+          <Col sm={6} md={4} lg={2} key={item.id} className="d-flex justify-content-center">
+            <Nav.Link as={Link} to={`products/${item.id}`}>
               <div className="product">
-                <img src={product.src} alt={product.name} className="prod-img" />
-                <h5 className="prod-name">{product.name}</h5>
-                <small className="prod-explanation">{product.explanation}</small>
-                <p>Score: {product.score}</p>
-                <small>{product.comments}</small>
-                <h6>{product.price}</h6>
+                <img src={item.photo_src} className="prod-img" />
+                <h5 className="prod-name">{item.name}</h5>
+                <small className="prod-explanation">{item.short_explanation}</small>
+                <p>Score: {item.average_star}</p>
+                <small>{item.comment_count}</small>
+                <h6>{item.price_info.total_price} TL {item.price_info.price_per_servings ? (
+                  <>{item.price_info.price_per_servings}</>
+                ) : null}</h6>
               </div>
             </Nav.Link>
           </Col>
         ))}
       </Row>
+
+      
     </Container>
   );
 };
