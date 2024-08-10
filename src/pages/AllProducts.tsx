@@ -1,10 +1,11 @@
 /* eslint-disable react-refresh/only-export-components */
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Button } from "react-bootstrap";
 import "./css/product.css";
 import { useLoaderData } from "react-router-dom";
 import { nanoid } from "nanoid";
+import { useState } from "react";
 
-interface AllProductsType{
+interface AllProductsType {
   id: string;
   name: string;
   short_explanation: string;
@@ -17,28 +18,49 @@ interface AllProductsType{
   };
   photo_src: string;
   comment_count: number;
-  average_star: number; 
+  average_star: number;
 }
 
 const BASE_URL = "https://fe1111.projects.academy.onlyjs.com/api/v1";
 
-export const fetchAllProducts =  async () => {
-  const response = await fetch(`${BASE_URL}/products?limit=12&offset=36`);
+export const fetchAllProducts = async (offset: number) => {
+  const response = await fetch(`${BASE_URL}/products?limit=12&offset=${offset}`);
   const allProductsData = await response.json();
-  console.log(allProductsData.data.results);
   return allProductsData.data.results;
 }
 
 const AllProducts = () => {
-const allProductsData = useLoaderData() as AllProductsType[];
-const allProductsMap = allProductsData.map((item) => ({...item, id: nanoid().slice(0, 3)}));
+  const initialProducts = useLoaderData() as AllProductsType[];
+
+  const [product, setProduct] = useState<AllProductsType[]>(initialProducts);
+  const [page, setPage] = useState<number>(0);
+
+  const fetchStep = async (newPage: number) => {
+    const offset = newPage * 12;
+    const pageProducts = await fetchAllProducts(offset);
+    setProduct(pageProducts);
+    setPage(newPage);
+  }
+
+  const nextPage = () => {
+    fetchStep(page + 1);
+  };
+
+  const beforePage = () => {
+    if(page > 0){
+      fetchStep(page - 1);
+    }
+  };
+
+  const allProductsMap = product.map((item) => ({...item, id: nanoid().slice(0, 3)}));
+
   return (
     <>
       <Container className="mt-5 mb-3">
         <h1 className="text-center mb-5">PROTEİN</h1>
 
         <Row>
-            {allProductsMap.map((prod) => {
+          {allProductsMap.map((prod) => {
             return (
               <Col key={prod.id} md={4} lg={3}>
                 <div className="product mb-3">
@@ -52,6 +74,13 @@ const allProductsMap = allProductsData.map((item) => ({...item, id: nanoid().sli
               </Col>
             );
           })}
+
+          <Button onClick={nextPage}>sonraki sayfa</Button>
+          {page < 0 ? (
+            null
+          ) : (
+            <Button onClick={beforePage}>önceki sayfa</Button>
+          )}
         </Row>
       </Container>
     </>

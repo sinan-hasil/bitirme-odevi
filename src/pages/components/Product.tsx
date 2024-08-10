@@ -1,10 +1,10 @@
 /* eslint-disable react-refresh/only-export-components */
 import { Col, Container, Nav, Row } from "react-bootstrap";
-import { Link, useLoaderData } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "../css/product.css";
 import { nanoid } from "nanoid";
 
-interface ProductType{
+export interface ProductType{
   id: string;
   name: string;
   short_explanation: string;
@@ -20,6 +20,10 @@ interface ProductType{
   average_star: number; 
 }
 
+interface ExportProductProps {
+  bestSellersData: ProductType[];
+}
+
 const BASE_URL = "https://fe1111.projects.academy.onlyjs.com/api/v1";
 
 export const fetchbestSellers = async() => {
@@ -28,9 +32,8 @@ export const fetchbestSellers = async() => {
   return bestSellersData.data;
 }
 
-const ExportProduct = () => {
-  const bestSellersData = useLoaderData() as ProductType[];
-  const bestSellersMap = bestSellersData.map((item) =>({...item, id: nanoid().slice(0, 3)}));
+const ExportProduct = ({ bestSellersData }: ExportProductProps) => {
+const bestSellersMap = bestSellersData.map((item) => ({...item, id: nanoid().slice(0, 3)}));
 
   return (
     <Container className="mt-5">
@@ -40,14 +43,12 @@ const ExportProduct = () => {
           <Col sm={6} md={4} lg={2} key={item.id} className="d-flex justify-content-center">
             <Nav.Link as={Link} to={`products/${item.id}`}>
               <div className="product">
-                <img src={item.photo_src} className="prod-img" />
+                <img src={`https://fe1111.projects.academy.onlyjs.com/${item.photo_src}`} className="prod-img" />
                 <h5 className="prod-name">{item.name}</h5>
                 <small className="prod-explanation">{item.short_explanation}</small>
                 <p>Score: {item.average_star}</p>
                 <small>{item.comment_count}</small>
-                <h6>{item.price_info.total_price} TL {item.price_info.price_per_servings ? (
-                  <>{item.price_info.price_per_servings}</>
-                ) : null}</h6>
+                <h6>{item.price_info.total_price} TL</h6>
               </div>
             </Nav.Link>
           </Col>
