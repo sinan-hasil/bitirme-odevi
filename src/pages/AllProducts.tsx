@@ -4,6 +4,7 @@ import "./css/product.css";
 import { useLoaderData } from "react-router-dom";
 import { nanoid } from "nanoid";
 import { useState } from "react";
+import { MdKeyboardDoubleArrowRight, MdKeyboardDoubleArrowLeft } from "react-icons/md";
 
 interface AllProductsType {
   id: string;
@@ -24,10 +25,12 @@ interface AllProductsType {
 const BASE_URL = "https://fe1111.projects.academy.onlyjs.com/api/v1";
 
 export const fetchAllProducts = async (offset: number) => {
-  const response = await fetch(`${BASE_URL}/products?limit=12&offset=${offset}`);
+  const response = await fetch(
+    `${BASE_URL}/products?limit=12&offset=${offset}`
+  );
   const allProductsData = await response.json();
   return allProductsData.data.results;
-}
+};
 
 const AllProducts = () => {
   const initialProducts = useLoaderData() as AllProductsType[];
@@ -40,19 +43,22 @@ const AllProducts = () => {
     const pageProducts = await fetchAllProducts(offset);
     setProduct(pageProducts);
     setPage(newPage);
-  }
+  };
 
   const nextPage = () => {
     fetchStep(page + 1);
   };
 
   const beforePage = () => {
-    if(page > 0){
+    if (page > 0) {
       fetchStep(page - 1);
     }
   };
 
-  const allProductsMap = product.map((item) => ({...item, id: nanoid().slice(0, 3)}));
+  const allProductsMap = product.map((item) => ({
+    ...item,
+    id: nanoid().slice(0, 3),
+  }));
 
   return (
     <>
@@ -64,9 +70,15 @@ const AllProducts = () => {
             return (
               <Col key={prod.id} md={4} lg={3}>
                 <div className="product mb-3">
-                  <img src={`https://fe1111.projects.academy.onlyjs.com/${prod.photo_src}`} alt={prod.name} className="img-fluid" />
+                  <img
+                    src={`https://fe1111.projects.academy.onlyjs.com/${prod.photo_src}`}
+                    alt={prod.name}
+                    className="img-fluid"
+                  />
                   <h5 className="prod-name">{prod.name}</h5>
-                  <small className="prod-explanation">{prod.short_explanation}</small>
+                  <small className="prod-explanation">
+                    {prod.short_explanation}
+                  </small>
                   <p>Score: {prod.average_star}</p>
                   <small>{prod.comment_count}</small>
                   <h6>{prod.price_info.total_price}</h6>
@@ -75,13 +87,13 @@ const AllProducts = () => {
             );
           })}
 
-          <Button onClick={nextPage}>sonraki sayfa</Button>
-          {page < 0 ? (
-            null
-          ) : (
-            <Button onClick={beforePage}>önceki sayfa</Button>
-          )}
-        </Row>
+          <div className="d-flex justify-content-center gap-3 mt-4 mb-5">
+            {page === 0 ? null : (
+              <Button variant="light" onClick={beforePage}><MdKeyboardDoubleArrowLeft /> önceki sayfa</Button>
+            )}
+            <Button variant="light" onClick={nextPage}>sonraki sayfa <MdKeyboardDoubleArrowRight /></Button>
+          </div>          
+        </Row>        
       </Container>
     </>
   );
