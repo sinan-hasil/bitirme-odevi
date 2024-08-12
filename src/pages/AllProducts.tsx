@@ -1,10 +1,13 @@
 /* eslint-disable react-refresh/only-export-components */
-import { Container, Row, Col, Button } from "react-bootstrap";
+import { Container, Row, Col, Button, Nav } from "react-bootstrap";
 import "./css/product.css";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import { nanoid } from "nanoid";
 import { useState } from "react";
-import { MdKeyboardDoubleArrowRight, MdKeyboardDoubleArrowLeft } from "react-icons/md";
+import {
+  MdKeyboardDoubleArrowRight,
+  MdKeyboardDoubleArrowLeft,
+} from "react-icons/md";
 
 interface AllProductsType {
   id: string;
@@ -69,31 +72,44 @@ const AllProducts = () => {
           {allProductsMap.map((prod) => {
             return (
               <Col key={prod.id} md={4} lg={3}>
-                <div className="product mb-3">
-                  <img
-                    src={`https://fe1111.projects.academy.onlyjs.com/${prod.photo_src}`}
-                    alt={prod.name}
-                    className="img-fluid"
-                  />
-                  <h5 className="prod-name">{prod.name}</h5>
-                  <small className="prod-explanation">
-                    {prod.short_explanation}
-                  </small>
-                  <p>Score: {prod.average_star}</p>
-                  <small>{prod.comment_count}</small>
-                  <h6>{prod.price_info.total_price}</h6>
-                </div>
+                <Nav.Link as={Link} to={`allProducts/${prod.id}`}>
+                  <div className="product mb-3">
+                    <img
+                      src={`https://fe1111.projects.academy.onlyjs.com/${prod.photo_src}`}
+                      alt={prod.name}
+                      className="img-fluid"
+                    />
+                    <h5 className="prod-name">{prod.name}</h5>
+                    <small className="prod-explanation">
+                      {prod.short_explanation}
+                    </small>
+                    <p>Score: {prod.average_star}</p>
+                    <small>{prod.comment_count}</small>
+                    <h6>{prod.price_info.total_price}</h6>
+                    <div>onur korkuoglu
+                      <h1>sinan senin amk
+                      </h1>
+                      <textarea name="" id="" placeholder="asdasd"></textarea>
+                      
+
+                    </div>
+                  </div>
+                </Nav.Link>
               </Col>
             );
           })}
 
           <div className="d-flex justify-content-center gap-3 mt-4 mb-5">
             {page === 0 ? null : (
-              <Button variant="light" onClick={beforePage}><MdKeyboardDoubleArrowLeft /> önceki sayfa</Button>
+              <Button variant="light" onClick={beforePage}>
+                <MdKeyboardDoubleArrowLeft /> önceki sayfa
+              </Button>
             )}
-            <Button variant="light" onClick={nextPage}>sonraki sayfa <MdKeyboardDoubleArrowRight /></Button>
-          </div>          
-        </Row>        
+            <Button variant="light" onClick={nextPage}>
+              sonraki sayfa <MdKeyboardDoubleArrowRight />
+            </Button>
+          </div>
+        </Row>
       </Container>
     </>
   );

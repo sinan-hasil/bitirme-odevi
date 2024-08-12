@@ -3,6 +3,9 @@
   flex-direction: column;
   align-items: center;
 }
+.product .discount-percentage {
+  background-color: red;
+}
 .product .prod-img {
   width: 177px !important;
   height: 177px !important;

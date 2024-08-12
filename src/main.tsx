@@ -5,7 +5,7 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css"
-import {AllProducts, Contact, Login, Mainpage, Root, SSS} from './pages';
+import { AllProducts, Contact, Login, Mainpage, ProductDetail, Root, SSS } from './pages';
 import { fetchbestSellers } from './pages/components/Product';
 import { fetchAllProducts } from './pages/AllProducts';
 
@@ -21,20 +21,29 @@ const router = createBrowserRouter([
       },
       {
         path: "/allProducts",
-        element: <AllProducts />,
+        element: <AllProducts />, 
         loader: fetchAllProducts,
       },
       {
+        path: "/allProducts/:userId",
+        children: [
+          {
+            index: true, 
+            element: <ProductDetail /> 
+          }
+        ]
+      },
+      {
         path: "/contact",
-        element: <Contact />
+        element: <Contact /> 
       },
       {
         path: "/faq",
-        element: <SSS />
+        element: <SSS /> 
       }, 
       {
         path: "/login",
-        element: <Login />
+        element: <Login /> 
       }     
     ]
   },
