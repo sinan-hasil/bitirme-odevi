@@ -85,14 +85,7 @@ const AllProducts = () => {
                     </small>
                     <p>Score: {prod.average_star}</p>
                     <small>{prod.comment_count}</small>
-                    <h6>{prod.price_info.total_price}</h6>
-                    <div>onur korkuoglu
-                      <h1>sinan senin amk
-                      </h1>
-                      <textarea name="" id="" placeholder="asdasd"></textarea>
-                      
-
-                    </div>
+                    <h6>{prod.price_info.total_price}</h6>                    
                   </div>
                 </Nav.Link>
               </Col>
