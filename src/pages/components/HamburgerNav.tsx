@@ -83,8 +83,8 @@ const App = ({ direciton, size }: { direciton: "left" | "right", size: number | 
             <div className="auth">
               <ul>
                 <li><Nav.Link as={Link} to={"/login"}>HESABIM</Nav.Link></li>
-                <li>MÜŞTERİ YORUMLARI</li>
-                <li>İLETİŞİM</li>
+                <li><Nav.Link as={Link} to={"/faq"}>MÜŞTERİ YORUMLARI</Nav.Link></li>
+                <li><Nav.Link as={Link} to={"/contact"}>İLETİŞİM</Nav.Link></li>
               </ul>
             </div>
           </>

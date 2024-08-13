@@ -8,6 +8,7 @@ import "bootstrap/dist/css/bootstrap.min.css"
 import { AllProducts, Contact, Login, Mainpage, ProductDetail, Root, SSS } from './pages';
 import { fetchbestSellers } from './pages/components/Product';
 import { fetchAllProducts } from './pages/AllProducts';
+import { fetchProductDetails } from './pages/ProductDetail';
 
 const router = createBrowserRouter([
   {
@@ -29,7 +30,8 @@ const router = createBrowserRouter([
         children: [
           {
             index: true, 
-            element: <ProductDetail /> 
+            element: <ProductDetail />,
+            loader: fetchProductDetails
           }
         ]
       },

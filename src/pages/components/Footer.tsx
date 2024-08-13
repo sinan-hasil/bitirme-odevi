@@ -79,7 +79,7 @@ const Footer = () => {
             <div className="first-list">
               <div><Nav.Link as={Link} to={"/contact"}>İletişim</Nav.Link></div>
               <div>Hakkımızda</div>
-              <div>Sıkça Sorulan Sorular</div>
+              <div><Nav.Link as={Link} to={"/faq"}>Sıkça Sorulan Sorular</Nav.Link></div>
               <div>KVKK</div>
               <div>Çalışma İlkelerimiz</div>
               <div>Satış Sözleşmesi</div>
@@ -101,7 +101,7 @@ const Footer = () => {
           <AccordionDetails className="bg-dark text-white">
             <div className="second-list">
               
-              <div>Protein</div>
+              <div><Nav.Link as={Link} to={"/allProducts"}>Protein</Nav.Link></div>
               <div>Spor Gıdaları</div>
               <div>Sağlık</div>
               <div>Gıda</div>
