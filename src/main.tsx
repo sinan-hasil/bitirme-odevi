@@ -1,4 +1,3 @@
-import React from 'react'
 import ReactDOM from 'react-dom/client'
 import {
   createBrowserRouter,
@@ -8,7 +7,7 @@ import "bootstrap/dist/css/bootstrap.min.css"
 import { AllProducts, Contact, Login, Mainpage, ProductDetail, Root, SSS } from './pages';
 import { fetchbestSellers } from './pages/components/Product';
 import { fetchAllProducts } from './pages/AllProducts';
-import { fetchProductDetails } from './pages/ProductDetail';
+import { fetchProductDetail } from './pages/ProductDetail';
 
 const router = createBrowserRouter([
   {
@@ -26,14 +25,9 @@ const router = createBrowserRouter([
         loader: fetchAllProducts,
       },
       {
-        path: "/allProducts/:userId",
-        children: [
-          {
-            index: true, 
-            element: <ProductDetail />,
-            loader: fetchProductDetails
-          }
-        ]
+        path: "allProducts/:id",
+        element: <ProductDetail />,
+        loader: fetchProductDetail,
       },
       {
         path: "/contact",
@@ -52,7 +46,5 @@ const router = createBrowserRouter([
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
-  <React.StrictMode>
     <RouterProvider router={router} />
-  </React.StrictMode>,
 )

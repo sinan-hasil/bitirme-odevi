@@ -1,6 +1,6 @@
 /* eslint-disable react-refresh/only-export-components */
 import { Col, Container, Nav, Row } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import "../css/product.css";
 import { nanoid } from "nanoid";
 
@@ -20,10 +20,6 @@ export interface ProductType {
   average_star: number; 
 }
 
-interface ExportProductProps {
-  bestSellersData: ProductType[];
-}
-
 const BASE_URL = "https://fe1111.projects.academy.onlyjs.com/api/v1";
 
 export const fetchbestSellers = async () => {
@@ -32,14 +28,16 @@ export const fetchbestSellers = async () => {
   return bestSellersData.data;
 }
 
-const ExportProduct = ({ bestSellersData }: ExportProductProps) => {
-  const bestSellersMap = bestSellersData.map((item) => ({ ...item, id: nanoid().slice(0, 3) }));
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const ExportProduct = () => {
+  const bestSellersMap = useLoaderData() as ProductType[];
+  const map = bestSellersMap.map((item) => ({...item, id: nanoid().slice(0, 3)}))
 
   return (
     <Container className="mt-5">
       <h2 className="text-center">ÇOK SATANLAR</h2>
       <Row>
-        {bestSellersMap.map((item) => (          
+        {map.map((item) => (          
           <Col sm={6} md={4} lg={2} key={item.id} className="d-flex justify-content-center">
             <Nav.Link as={Link} to={`allProducts/${item.id}`}>            
               <div className="product">

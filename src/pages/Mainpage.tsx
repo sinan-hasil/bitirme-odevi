@@ -1,24 +1,15 @@
 import BigCard from "./components/BigCard";
 import Delevery from "./components/Delevery";
 import MainpageComments from "./components/MainpageComments";
-import ExportProduct, { fetchbestSellers, ProductType } from "./components/Product";
 import bigImg from "./images/OJS nutrition slider banner 2.png";
 import sport from "./images/sport.png";
 import { Col, Container, Row } from "react-bootstrap";
 import "./css/mainpage.css";
-import { useEffect, useState } from "react";
+import ExportProduct from "./components/Product";
 
 const Mainpage = () => {
-  const [stateBestSellersData, setStateBestSellersData] = useState<ProductType[]>();
 
-  useEffect(() => {
-    const loadBestSellers = async () => {
-      const data = await fetchbestSellers();
-      setStateBestSellersData(data);
-    };
-
-    loadBestSellers();
-  }, [])
+ 
 
   return (
     <>
@@ -29,7 +20,7 @@ const Mainpage = () => {
       </div>
 
       <BigCard />
-      <ExportProduct bestSellersData={stateBestSellersData || []} />
+      <ExportProduct />
 
       <Container fluid className="sport mt-4" style={{ position: "relative" }}>
         <img src={sport} className="img-fluid w-100" />

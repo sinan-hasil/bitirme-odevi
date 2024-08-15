@@ -2,7 +2,6 @@
 import { Container, Row, Col, Button, Nav } from "react-bootstrap";
 import "./css/product.css";
 import { Link, useLoaderData } from "react-router-dom";
-import { nanoid } from "nanoid";
 import { useState } from "react";
 import {
   MdKeyboardDoubleArrowRight,
@@ -10,7 +9,7 @@ import {
 } from "react-icons/md";
 
 interface AllProductsType {
-  id: string;
+  id: number;
   name: string;
   short_explanation: string;
   price_info: {
@@ -26,6 +25,7 @@ interface AllProductsType {
 }
 
 const BASE_URL = "https://fe1111.projects.academy.onlyjs.com/api/v1";
+
 
 export const fetchAllProducts = async (offset: number) => {
   const response = await fetch(
@@ -58,21 +58,16 @@ const AllProducts = () => {
     }
   };
 
-  const allProductsMap = product.map((item) => ({
-    ...item,
-    id: nanoid().slice(0, 3),
-  }));
-
   return (
     <>
       <Container className="mt-5 mb-3">
         <h1 className="text-center mb-5">PROTEİN</h1>
 
         <Row>
-          {allProductsMap.map((prod) => {
+          {product.map((prod) => {
             return (
               <Col key={prod.id} md={4} lg={3}>
-                <Nav.Link as={Link} to={`allProducts/${prod.id}`}>
+                <Nav.Link as={Link} to={`${prod.id}`}>
                   <div className="product mb-3">
                     <img
                       src={`https://fe1111.projects.academy.onlyjs.com/${prod.photo_src}`}
