@@ -4,10 +4,9 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css"
-import { AllProducts, Contact, Login, Mainpage, ProductDetail, Root, SSS } from './pages';
+import { AllProducts, Contact, Login, Mainpage, Root, SSS } from './pages';
 import { fetchbestSellers } from './pages/components/Product';
 import { fetchAllProducts } from './pages/AllProducts';
-import { fetchProductDetail } from './pages/ProductDetail';
 
 const router = createBrowserRouter([
   {
@@ -23,11 +22,6 @@ const router = createBrowserRouter([
         path: "/allProducts",
         element: <AllProducts />, 
         loader: fetchAllProducts,
-      },
-      {
-        path: "allProducts/:id",
-        element: <ProductDetail />,
-        loader: fetchProductDetail,
       },
       {
         path: "/contact",

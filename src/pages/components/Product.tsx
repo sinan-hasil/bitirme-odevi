@@ -31,7 +31,8 @@ export const fetchbestSellers = async () => {
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const ExportProduct = () => {
   const bestSellersMap = useLoaderData() as ProductType[];
-  const map = bestSellersMap.map((item) => ({...item, id: nanoid().slice(0, 3)}))
+  const map = bestSellersMap.map((item) => ({...item, id: nanoid().slice(0, 3)}));
+
 
   return (
     <Container className="mt-5">

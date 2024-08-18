@@ -27,11 +27,12 @@ interface AllProductsType {
 const BASE_URL = "https://fe1111.projects.academy.onlyjs.com/api/v1";
 
 
-export const fetchAllProducts = async (offset: number) => {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const fetchAllProducts = async (offset: any) => {
   const response = await fetch(
     `${BASE_URL}/products?limit=12&offset=${offset}`
   );
-  const allProductsData = await response.json();
+  const allProductsData = await response.json(); 
   return allProductsData.data.results;
 };
 
